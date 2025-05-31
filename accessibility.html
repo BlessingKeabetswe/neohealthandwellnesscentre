@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our comprehensive accessibility statement detailing our commitment to inclusive digital experiences for all users">
+    <title>Accessibility Statement | Neo Health and Wellness Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF7B25;
+            --primary-hover: #e56a1a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3 {
+            color: #111827;
+            font-weight: 700;
+        }
+        
+        a:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #111827;
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+            transition: top 0.3s;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .accessibility-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-box {
+            background-color: rgba(255, 123, 37, 0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        .accessibility-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .accessibility-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .accessibility-btn:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.1);
+        }
+        
+        .accessibility-btn:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <button id="font-increase" class="accessibility-btn" aria-label="Increase font size">
+            <i class="fas fa-text-height"></i>
+        </button>
+        <button id="font-decrease" class="accessibility-btn" aria-label="Decrease font size">
+            <i class="fas fa-text-width"></i>
+        </button>
+        <button id="high-contrast" class="accessibility-btn" aria-label="Toggle high contrast mode">
+            <i class="fas fa-adjust"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between flex-wrap">
+            <div class="logo">
+                <img src="neo logo.jpg" alt="Neo Health and Wellness Logo" class="h-12" />
+            </div>
+            <nav>
+                <ul class="flex flex-wrap gap-4 text-white font-medium">
+                    <li><a href="index.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded transition">Home</a></li>
+                    <li><a href="about.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded transition">Services</a></li>
+                    <li><a href="accessibility.html" class="bg-white text-orange-500 px-3 py-1 rounded" aria-current="page">Accessibility</a></li>
+                    <li><a href="contact.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded transition">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-16">
+        <article class="max-w-4xl mx-auto">
+            <!-- Page Header -->
+            <header class="mb-16 text-center">
+                <div class="accessibility-icon mx-auto">
+                    <i class="fas fa-universal-access text-3xl"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Accessibility Statement</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our unwavering commitment to creating an inclusive digital experience for all patients and visitors</p>
+            </header>
+
+            <!-- Commitment Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 relative pl-12">
+                    <span class="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-1 bg-orange-500"></span>
+                    Our Commitment to Accessibility
+                </h2>
+                <div class="highlight-box p-6 mb-8 rounded-r-lg">
+                    <p class="text-orange-800 font-medium text-lg"><i class="fas fa-heart mr-2"></i> At Neo Health and Wellness Clinic, we believe healthcare information should be accessible to everyone, regardless of ability or technology used.</p>
+                </div>
+                <div class="prose max-w-none">
+                    <p class="mb-6">We are dedicated to ensuring our digital platforms meet or exceed the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. Our team works diligently to create an online experience that accommodates individuals with visual, auditory, motor, cognitive, and other disabilities.</p>
+                    
+                    <p class="mb-6">Our accessibility efforts include:</p>
+                    
+                    <ul class="list-disc pl-8 mb-6 space-y-3">
+                        <li>Regular accessibility audits by both automated tools and human evaluators</li>
+                        <li>Ongoing staff training on accessibility best practices</li>
+                        <li>Collaboration with disability advocacy groups</li>
+                        <li>Implementation of user feedback to improve accessibility</li>
+                    </ul>
+                    
+                    <p>We recognize that accessibility is an ongoing journey, and we are committed to continuous improvement of our digital properties to serve all members of our community.</p>
+                </div>
+            </section>
+
+            <!-- Accessibility Features Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 relative pl-12">
+                    <span class="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-1 bg-orange-500"></span>
+                    Accessibility Features
+                </h2>
+                <p class="mb-8">We've implemented numerous features to enhance accessibility for all users:</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-3xl mb-4">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Keyboard Navigation</h3>
+                        <p class="text-gray-600">All functionality available by mouse is also available using only a keyboard, with visible focus indicators for interactive elements.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-3xl mb-4">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Visual Adjustments</h3>
+                        <p class="text-gray-600">Text can be resized up to 200% without loss of content or functionality. Sufficient color contrast is maintained throughout.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-3xl mb-4">
+                            <i class="fas fa-assistive-listening-systems"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Screen Reader Compatible</h3>
+                        <p class="text-gray-600">Proper semantic HTML and ARIA landmarks ensure compatibility with JAWS, NVDA, VoiceOver, and other screen readers.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-3xl mb-4">
+                            <i class="fas fa-closed-captioning"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Multimedia Accessibility</h3>
+                        <p class="text-gray-600">Videos include captions and audio descriptions. Transcripts are provided for audio content.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-3xl mb-4">
+                            <i class="fas fa-text-height"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Readable Content</h3>
+                        <p class="text-gray-600">We use clear, simple language and consistent navigation. Content is organized with proper headings and labels.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-3xl mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Responsive Design</h3>
+                        <p class="text-gray-600">Our website adapts to various screen sizes and orientations, maintaining accessibility across devices.</p>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none">
+                    <p>While we strive to make all areas of our website accessible, some third-party content or legacy documents may not fully meet accessibility standards. We are actively working to address these issues and welcome your feedback.</p>
+                </div>
+            </section>
+
+            <!-- Technical Compliance Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 relative pl-12">
+                    <span class="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-1 bg-orange-500"></span>
+                    Technical Compliance
+                </h2>
+                
+                <div class="prose max-w-none">
+                    <p class="mb-6">Our website has been designed and developed with accessibility in mind from the ground up. We adhere to the following standards and guidelines:</p>
+                    
+                    <ul class="list-disc pl-8 mb-6 space-y-3">
+                        <li><strong>WCAG 2.1 Level AA:</strong> We meet or exceed the success criteria outlined in the Web Content Accessibility Guidelines 2.1</li>
+                        <li><strong>Section 508:</strong> Compliance with U.S. federal accessibility requirements</li>
+                        <li><strong>ADA Title III:</strong> Alignment with Americans with Disabilities Act requirements</li>
+                        <li><strong>EN 301 549:</strong> Meeting European accessibility standards</li>
+                    </ul>
+                    
+                    <p class="mb-6">We recommend using the latest versions of modern web browsers (Chrome, Firefox, Safari, Edge) with updated assistive technologies for the best experience.</p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold mb-4 text-orange-600">Known Limitations</h3>
+                        <p class="mb-4">While we strive for full accessibility, we acknowledge the following areas may have limitations:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Some older PDF documents may not be fully accessible</li>
+                            <li>Third-party widgets or embedded content may have varying accessibility</li>
+                            <li>Complex medical diagrams may have simplified text alternatives</li>
+                        </ul>
+                    </div>
+                    
+                    <p>We are actively working to improve these areas and welcome suggestions for enhancement.</p>
+                </div>
+            </section>
+
+            <!-- Feedback Section -->
+            <section class="mb-16 bg-orange-50 p-8 rounded-xl border border-orange-100">
+                <h2 class="text-3xl font-bold mb-8 relative pl-12">
+                    <span class="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-1 bg-orange-500"></span>
+                    We Value Your Feedback
+                </h2>
+                
+                <div class="prose max-w-none mb-8">
+                    <p>Your experience matters to us. If you encounter any accessibility barriers or have suggestions for improvement, please let us know. We treat all feedback with the highest priority.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-orange-700">Contact Our Accessibility Team</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mt-1 mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p><a href="mailto:accessibility@neohealth.com" class="text-orange-600 hover:underline">accessibility@neohealth.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mt-1 mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Phone</h4>
+                                    <p><a href="tel:+15551234567" class="text-orange-600 hover:underline">(555) 123-4567</a> (Voice)</p>
+                                    <p><a href="tel:+15559876543" class="text-orange-600 hover:underline">(555) 987-6543</a> (TTY)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mt-1 mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Mail</h4>
+                                    <address class="not-italic">
+                                        Neo Health and Wellness Clinic<br>
+                                        Attn: Accessibility Coordinator<br>
+                                        123 Wellness Way, Suite 200<br>
+                                        Healthville, CA 12345
+                                    </address>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-orange-500 text-xl mt-1 mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Response Time</h4>
+                                    <p>We acknowledge all accessibility feedback within 3 business days and provide a resolution timeline for reported issues.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-orange-700">Accessibility Feedback Form</h3>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block font-medium mb-1">Name (optional)</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block font-medium mb-1">Email (optional)</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                <p class="text-sm text-gray-500 mt-1">Required if you'd like a response</p>
+                            </div>
+                            
+                            <div>
+                                <label for="feedback-type" class="block font-medium mb-1">Type of Feedback</label>
+                                <select id="feedback-type" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                    <option value="">Select one...</option>
+                                    <option value="problem">Accessibility Problem</option>
+                                    <option value="suggestion">Improvement Suggestion</option>
+                                    <option value="compliment">Positive Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="page-url" class="block font-medium mb-1">Page URL (if applicable)</label>
+                                <input type="url" id="page-url" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block font-medium mb-1">Your Feedback*</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition">
+                                Submit Feedback
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Update Information -->
+            <section class="text-center">
+                <p class="text-gray-500">This accessibility statement was last updated on <time datetime="2023-11-15" class="font-medium">November 15, 2023</time>.</p>
+                <p class="text-gray-500">We review and update this statement quarterly to reflect our ongoing accessibility improvements.</p>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="neo logo.jpg" alt="Neo Health and Wellness Logo" class="h-12 mb-4" />
+                    <p class="text-gray-400">Specialized care for wound, ostomy, and continence needs.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="accessibility.html" class="text-orange-400 hover:text-orange-300 transition">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <address class="not-italic text-gray-400">
+                        <p class="mb-2">123 Wellness Way</p>
+                        <p class="mb-2">Healthville, HV 12345</p>
+                        <p class="mb-2">Phone: (555) 123-4567</p>
+                        <p class="mb-4">Email: info@neohealth.com</p>
+                    </address>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2023 Neo Health and Wellness Clinic. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-orange-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 invisible hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Font size adjustment
+        document.getElementById('font-increase').addEventListener('click', function() {
+            document.body.style.fontSize = '1.2em';
+        });
+        
+        document.getElementById('font-decrease').addEventListener('click', function() {
+            document.body.style.fontSize = '0.9em';
+        });
+        
+        // High contrast mode
+        document.getElementById('high-contrast').addEventListener('click', function() {
+            document.body.classList.toggle('high-contrast');
+            if (document.body.classList.contains('high-contrast')) {
+                document.body.style.backgroundColor = '#000';
+                document.body.style.color = '#fff';
+                document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(el => {
+                    el.style.color = '#fff';
+                });
+                document.querySelectorAll('a').forEach(el => {
+                    el.style.color = '#FF7B25';
+                });
+            } else {
+                document.body.style.backgroundColor = '';
+                document.body.style.color = '';
+                document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(el => {
+                    el.style.color = '';
+                });
+                document.querySelectorAll('a').forEach(el => {
+                    el.style.color = '';
+                });
+            }
+        });
+        
+        // Focus styles for keyboard users
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-user');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-user');
+        });
+        
+        // Reduce motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                el.style.animation = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
