@@ -1,52 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ostomy Care Services</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Neo Health and Wellness Center provides specialized ostomy care services including colostomy, ileostomy, and urostomy care in a safe, private environment.">
+  <meta name="keywords" content="Ostomy Care, Colostomy, Ileostomy, Urostomy, Neo Health, Wellness Center, Wound Care, Patient Education">
+  <meta name="author" content="Neo Health and Wellness Center">
+  <title>Ostomy Care Services | Neo Health and Wellness Center</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-    <header class="header" role="banner">
-        <div class="logo">
-            <img src="neo logo.jpg" alt="Neo Health and Wellness Center Logo">
-        </div>
-        <nav class="navbar" role="navigation">
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="appointment.html">Book Appointment</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Our Team</a></li>
-                <li><a href="refer.html">Refer A Patient</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <a href="index.html">
+      <img src="neo-logo-white.webp" alt="Neo Health and Wellness Center Logo" width="200" height="auto" />
+    </a>
+    <nav>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        ☰
+      </button>
+      <ul id="primary-navigation" class="primary-navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
     <section class="hero">
-        <div class="hero-content">
-            <h1>Ostomy Care Services</h1>
-            <p>Dedicated support for individuals living with an ostomy.</p>
-        </div>
+      <h1>Ostomy Care Services</h1>
+      <p>Providing expert support and compassionate care for individuals with ostomies</p>
     </section>
-    <section class="content">
-        <div class="container">
-            <h2>Ostomy Care for Urine (Urostomy)</h2>
-            <ul>
-                <li><strong>Hygiene and Health Maintenance:</strong> Prevent infections and maintain skin integrity around the stoma.</li>
-                <li><strong>Urine Collection:</strong> Ensure proper usage of urostomy pouches for hygiene and leak prevention.</li>
-                <li><strong>Quality of Life:</strong> Support daily activities with minimal disruption and provide emotional support.</li>
-                <li><strong>Complication Prevention:</strong> Monitor for issues like stoma changes, blockages, or infections.</li>
-                <li><strong>Education and Independence:</strong> Train patients and caregivers in pouch management and stoma care.</li>
-            </ul>
-        </div>
+
+    <section class="intro">
+      <p>
+        At Neo Health and Wellness Center, our <strong>Ostomy Care Services</strong> are designed to support individuals who have undergone colostomy, ileostomy, or urostomy procedures. Our goal is to ensure you feel confident and informed in managing your ostomy, with personalized care in a safe and private environment.
+      </p>
     </section>
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Neo Health and Wellness Center | All Rights Reserved</p>
+
+    <section class="care-types">
+      <h2>Types of Ostomy Care We Offer</h2>
+      <ul>
+        <li><strong>Colostomy Care:</strong> Assistance with stoma cleaning, bag changes, and skin care.</li>
+        <li><strong>Ileostomy Care:</strong> Education on diet, fluid management, and pouching systems.</li>
+        <li><strong>Urostomy Care:</strong> Support with urinary diversion systems and preventing infections.</li>
+      </ul>
+      <img src="urostomy-care.webp" alt="Healthcare professional providing ostomy care to a patient" width="100%" height="auto" />
+    </section>
+
+    <section class="accordion-section">
+      <h2>What to Expect</h2>
+      <div class="accordion">
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel1" id="accordion1">
+          Personalized Care Plans
+        </button>
+        <div class="accordion-content" id="panel1" role="region" aria-labelledby="accordion1" hidden>
+          <p>We create customized care plans tailored to your specific type of ostomy and overall health needs.</p>
         </div>
-    </footer>
+
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel2" id="accordion2">
+          Education and Support
+        </button>
+        <div class="accordion-content" id="panel2" role="region" aria-labelledby="accordion2" hidden>
+          <p>Our team educates patients and caregivers on proper ostomy management, troubleshooting common issues, and maintaining hygiene.</p>
+        </div>
+
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel3" id="accordion3">
+          Ongoing Monitoring
+        </button>
+        <div class="accordion-content" id="panel3" role="region" aria-labelledby="accordion3" hidden>
+          <p>We offer follow-up appointments to monitor your stoma site, adjust care plans, and address any concerns.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Get the Support You Deserve</h2>
+      <p>Whether you are new to living with an ostomy or need continued support, we’re here for you.</p>
+      <a href="contact.html" class="button">Contact Us to Learn More</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Neo Health and Wellness Center. All rights reserved.</p>
+    <a href="#top" id="back-to-top">Back to Top</a>
+  </footer>
+
+  <!-- JavaScript for Accessibility and Interactions -->
+  <script>
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector(".mobile-nav-toggle");
+    const primaryNav = document.getElementById("primary-navigation");
+
+    navToggle.addEventListener("click", () => {
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", !expanded);
+      primaryNav.style.display = expanded ? "none" : "block";
+    });
+
+    // Accordion Functionality
+    document.querySelectorAll(".accordion-button").forEach(button => {
+      button.addEventListener("click", () => {
+        const content = document.getElementById(button.getAttribute("aria-controls"));
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", !isExpanded);
+        content.hidden = isExpanded;
+      });
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    backToTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
