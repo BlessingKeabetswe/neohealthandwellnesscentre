@@ -3,52 +3,605 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Continence Care Services</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Specialized continence care services at Neo Health and Wellness Center in Botswana. Personalized solutions for urinary and fecal incontinence management.">
+    <title>Continence Care Services | Neo Health and Wellness Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F97316',
+                        primaryDark: '#EA580C',
+                        secondary: '#C2410C',
+                        accent: '#FDBA74',
+                        teal: '#0D9488'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #F97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.1);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #F97316 0%, #C2410C 100%);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 100%);
+        }
+        
+        .rounded-image {
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-<body>
-    <header class="header" role="banner">
-        <div class="logo">
-            <img src="neo logo.jpg" alt="Neo Health and Wellness Center Logo">
+<body class="bg-orange-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50" role="banner">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="neo-logo.jpg" alt="Neo Health and Wellness Center Logo" class="h-10">
+                <span class="ml-2 text-lg font-bold hidden md:block">Neo Health and Wellness Center</span>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none" aria-label="Toggle menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6" role="navigation">
+                <a href="index.html" class="nav-link text-gray-800 hover:text-primary">Home</a>
+                <a href="about.html" class="nav-link text-gray-800 hover:text-primary">About Us</a>
+                <a href="services.html" class="nav-link text-gray-800 hover:text-primary">Services</a>
+                <a href="team.html" class="nav-link text-gray-800 hover:text-primary">Our Team</a>
+                <a href="contact.html" class="nav-link text-gray-800 hover:text-primary">Contact</a>
+                <a href="appointment.html" class="bg-primary hover:bg-primaryDark text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+                    Book Appointment
+                </a>
+            </nav>
         </div>
-        <nav class="navbar" role="navigation">
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="appointment.html">Book Appointment</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Our Team</a></li>
-                <li><a href="refer.html">Refer A Patient</a></li>
-            </ul>
-        </nav>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-800 hover:bg-orange-50 px-2 rounded">Home</a>
+            <a href="about.html" class="block py-2 text-gray-800 hover:bg-orange-50 px-2 rounded">About Us</a>
+            <a href="services.html" class="block py-2 text-gray-800 hover:bg-orange-50 px-2 rounded">Services</a>
+            <a href="team.html" class="block py-2 text-gray-800 hover:bg-orange-50 px-2 rounded">Our Team</a>
+            <a href="contact.html" class="block py-2 text-gray-800 hover:bg-orange-50 px-2 rounded">Contact</a>
+            <a href="appointment.html" class="block py-2 bg-primary text-white px-2 rounded font-medium">Book Appointment</a>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Continence Care Services</h1>
-            <p>Providing compassionate and personalized care for individuals managing incontinence.</p>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">Continence Care Services</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+                Compassionate, specialized care for urinary and fecal incontinence management
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.4s;">
+                <a href="#services" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition duration-300">
+                    Our Services <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+                <a href="appointment.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition duration-300">
+                    Book Consultation <i class="fas fa-calendar-check ml-2"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="content">
-        <div class="container">
-            <h2>Comprehensive Continence Care</h2>
-            <ul>
-                <li><strong>Individualized Care Plans:</strong> Tailored solutions for managing incontinence effectively.</li>
-                <li><strong>Expert Guidance on Hygiene:</strong> Ensure proper hygiene to prevent infections and maintain skin integrity.</li>
-                <li><strong>Education for Caregivers:</strong> Empower caregivers with the knowledge and skills to support patients.</li>
-                <li><strong>Product Assistance:</strong> Help patients select and use the right continence products.</li>
-                <li><strong>Emotional Support:</strong> Provide compassionate care to improve the overall quality of life for patients and their families.</li>
-            </ul>
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Comprehensive Continence Care</h2>
+                <p class="text-gray-600">
+                    We provide personalized solutions to help individuals regain control and improve their quality of life
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border-t-4 border-primary">
+                    <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-user-md text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Individualized Care Plans</h3>
+                    <p class="text-gray-600">
+                        Tailored solutions developed by our specialists to address your specific continence needs and lifestyle.
+                    </p>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border-t-4 border-primary">
+                    <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-hands-wash text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Hygiene & Skin Care</h3>
+                    <p class="text-gray-600">
+                        Expert guidance on maintaining proper hygiene to prevent infections and protect skin integrity.
+                    </p>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border-t-4 border-primary">
+                    <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Caregiver Education</h3>
+                    <p class="text-gray-600">
+                        Comprehensive training for family members and caregivers to provide optimal support.
+                    </p>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border-t-4 border-primary">
+                    <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-box-open text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Product Selection</h3>
+                    <p class="text-gray-600">
+                        Assistance in choosing and using the most appropriate continence products for your needs.
+                    </p>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border-t-4 border-primary">
+                    <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Behavioral Therapies</h3>
+                    <p class="text-gray-600">
+                        Techniques including bladder training, scheduled toileting, and pelvic floor exercises.
+                    </p>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border-t-4 border-primary">
+                    <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Emotional Support</h3>
+                    <p class="text-gray-600">
+                        Counseling and support groups to help cope with the psychological impact of incontinence.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Neo Health and Wellness Center | All Rights Reserved</p>
+    <!-- Approach Section -->
+    <section class="py-16 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                             alt="Continence care specialist with patient" 
+                             class="rounded-image w-full h-auto">
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Our Holistic Approach to Continence Care</h2>
+                        <p class="text-gray-600 mb-8">
+                            At Neo Health, we understand that continence issues affect more than just physical health. 
+                            Our comprehensive approach addresses all aspects of well-being with dignity and respect.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="feature-icon bg-orange-100 text-primary">
+                                    <i class="fas fa-users text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Multidisciplinary Team</h3>
+                                <p class="text-gray-600 text-sm">Urologists, nurses, physiotherapists working together for comprehensive care.</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="feature-icon bg-orange-100 text-primary">
+                                    <i class="fas fa-book-medical text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Evidence-Based Practices</h3>
+                                <p class="text-gray-600 text-sm">Following the latest clinical guidelines and research-backed treatments.</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="feature-icon bg-orange-100 text-primary">
+                                    <i class="fas fa-user-shield text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Discreet & Respectful</h3>
+                                <p class="text-gray-600 text-sm">Maintaining dignity and privacy throughout your treatment journey.</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-sm">
+                                <div class="feature-icon bg-orange-100 text-primary">
+                                    <i class="fas fa-heartbeat text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Whole-Person Focus</h3>
+                                <p class="text-gray-600 text-sm">Addressing physical, emotional, and social aspects of continence care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Conditions We Treat</h2>
+                <p class="text-gray-600">
+                    Our specialists provide expert care for various types of urinary and fecal incontinence
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Stress Incontinence</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Leakage with coughing, sneezing, or physical activity due to weakened pelvic muscles.</p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Urge Incontinence</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Sudden, intense urge to urinate followed by involuntary loss of urine (overactive bladder).</p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Mixed Incontinence</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Combination of stress and urge incontinence symptoms.</p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Functional Incontinence</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Physical or cognitive impairments that make reaching the toilet difficult.</p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Fecal Incontinence</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Inability to control bowel movements, leading to involuntary stool leakage.</p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-sm"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Post-Surgical Incontinence</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Incontinence following prostate surgery, hysterectomy, or other pelvic procedures.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-orange-100 border-l-4 border-primary p-6 rounded-lg">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 text-primary text-xl mr-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Did You Know?</h3>
+                        <p class="text-gray-700">
+                            Many continence issues can be improved or resolved with proper treatment. Early intervention leads to better outcomes. 
+                            Our success rates show that 85% of patients experience significant improvement within 3 months of starting treatment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Patient Experiences</h2>
+                <p class="text-gray-600">
+                    Hear from individuals who have regained control and confidence through our continence care program
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Mma B.</h4>
+                            <p class="text-sm text-gray-500">Age 62, Gaborone</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "After my surgery, I struggled with incontinence. The team at Neo Health gave me back my independence 
+                        with their personalized care plan and ongoing support. I can now enjoy my daily activities without worry."
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary bg-opacity-10 text-primary w-14 h-14 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Rra K.</h4>
+                            <p class="text-sm text-gray-500">Age 58, Francistown</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "The caregiver training program was invaluable for my wife who helps care for me. We both feel more 
+                        confident managing my condition day-to-day. The staff's patience and expertise made all the difference."
+                    </p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="feedback.html" class="inline-flex items-center text-primary hover:text-primaryDark font-medium">
+                    Read more testimonials <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">Take Control of Your Continence Health</h2>
+                <p class="text-lg mb-8">
+                    Our specialists are ready to help you regain confidence and improve your quality of life. 
+                    Schedule a confidential consultation today.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="appointment.html" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition duration-300">
+                        Book Appointment <i class="fas fa-calendar-check ml-2"></i>
+                    </a>
+                    <a href="tel:+26771823042" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition duration-300">
+                        Call Us Now <i class="fas fa-phone-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="neo-logo.jpg" alt="Neo Health Logo" class="h-12 mb-4">
+                    <p class="text-gray-400">Specialized care for wound management, ostomy care, and continence care in Gaborone, Botswana.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="wound-care.html" class="text-gray-400 hover:text-white transition duration-300">Wound Care</a></li>
+                        <li><a href="ostomy-care.html" class="text-gray-400 hover:text-white transition duration-300">Ostomy Care</a></li>
+                        <li><a href="professional-nursing.html" class="text-gray-400 hover:text-white transition duration-300">Nursing Services</a></li>
+                        <li><a href="continence-care.html" class="text-gray-400 hover:text-white transition duration-300">Continence Care</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Gaborone West Plot 16424<br>Nossop Cres, Gaborone West Ext 48<br>Botswana</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <a href="tel:+26771823042" class="hover:text-white transition duration-300">+267 71 823 042</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <a href="mailto:neohealth.wellnesscenter@gmail.com" class="hover:text-white transition duration-300">info@neohealth.bw</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3"></i>
+                            <span>Mon-Fri: 8:00 AM - 5:00 PM<br>Sat: 9:00 AM - 1:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Neo Health and Wellness Center. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Terms of Service</a>
+                    <a href="accessibility.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Accessibility</a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-primaryDark" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
