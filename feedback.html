@@ -3,78 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Provide your feedback about Neo Health and Wellness Center services.">
-    <meta name="keywords" content="feedback, Neo Health and Wellness Center, patient reviews, healthcare feedback">
+    <meta name="description" content="Share your experience with Neo Health and Wellness Center. Your feedback helps us improve our healthcare services.">
+    <meta name="keywords" content="feedback, patient experience, healthcare reviews, service rating, Neo Health, wellness center">
     <meta name="author" content="Neo Health and Wellness Center">
     <title>Feedback - Neo Health and Wellness Center</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+        }
+        .form-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .input-focus:focus {
+            border-color: #fb923c;
+            box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.2);
+        }
+        .rating-star {
+            color: #E5E7EB;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .rating-star.active {
+            color: #f59e0b;
+        }
+        .rating-star:hover {
+            transform: scale(1.1);
+        }
+        .nav-link:hover {
+            color: #9a3412;
+        }
+        .btn-primary {
+            background-color: #f97316;
+        }
+        .btn-primary:hover {
+            background-color: #ea580c;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-orange-50">
     <!-- Header Section -->
-    <header class="header" role="banner">
-        <div class="logo">
-            <img src="neo logo.jpg" alt="Neo Health and Wellness Center Logo">
+    <header class="header p-4 bg-orange-500">
+        <div class="container mx-auto flex items-center justify-between flex-wrap">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="neo logo.jpg" alt="Neo Health and Wellness Centre Logo" class="h-12" />
+            </div>
+    
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-white text-3xl focus:outline-none">
+                ☰
+            </button>
+    
+            <!-- Navigation Menu -->
+            <nav id="nav-menu" class="w-full md:w-auto md:flex hidden flex-col md:flex-row gap-4 mt-4 md:mt-0 text-white font-medium">
+                <ul class="flex flex-col md:flex-row gap-4">
+                    <li><a href="index.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Home</a></li>
+                    <li><a href="about.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">About Us</a></li>
+                    <li><a href="services.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Services</a></li>
+                    <li><a href="contact.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Contact Us</a></li>
+                    <li><a href="appointment.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Book Appointment</a></li>
+                    <li><a href="feedback.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Feedback</a></li>
+                    <li><a href="team.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Our Team</a></li>
+                    <li><a href="refer.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Refer A Patient</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="navbar" role="navigation">
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="appointment.html">Book Appointment</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Our Team</a></li>
-                <li><a href="refer.html">Refer A Patient</a></li>
-            </ul>
-        </nav>
+    
+        <!-- Toggle Script -->
+        <script>
+            const toggleButton = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+    
+            toggleButton.addEventListener('click', () => {
+                navMenu.classList.toggle('hidden');
+            });
+        </script>
     </header>
+    
 
-    <!-- Feedback Section -->
-    <section class="feedback" id="feedback">
-        <div class="container">
-            <h2>We Value Your Feedback</h2>
-            <p>Your feedback helps us improve and provide better healthcare services. Please share your experience with us below:</p>
-
-            <!-- Feedback Form -->
-            <form action="submit_feedback.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label for="rating">Rating</label>
-                    <select id="rating" name="rating" required>
-                        <option value="1">1 - Poor</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="3">3 - Good</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="5">5 - Excellent</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="feedback">Your Feedback</label>
-                    <textarea id="feedback" name="feedback" rows="5" required placeholder="Enter your feedback"></textarea>
-                </div>
-                <button type="submit" class="btn">Submit Feedback</button>
-            </form>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Share Your Experience</h1>
+            <p class="text-lg max-w-2xl mx-auto">Your feedback helps us improve and provide better healthcare services</p>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Neo Health and Wellness Center | All Rights Reserved</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/p/Neo-Health-Wellness-Center-100093819079340/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <!-- Feedback Section -->
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-white rounded-xl form-shadow overflow-hidden p-8 md:p-10">
+                <div class="flex items-center mb-8">
+                    <div class="bg-orange-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-comment-dots text-orange-500 text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">We Value Your Feedback</h2>
+                </div>
+                
+                <form action="submit_feedback.php" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name"
+                                class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500 py-3 px-4 border">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email"
+                                class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500 py-3 px-4 border">
+                        </div>
+                    </div>
+                    
+                    <!-- Star Rating -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Rating</label>
+                        <div class="flex items-center space-x-2" id="star-rating">
+                            <input type="hidden" id="rating" name="rating" value="0">
+                            <i class="fas fa-star rating-star" data-value="1"></i>
+                            <i class="fas fa-star rating-star" data-value="2"></i>
+                            <i class="fas fa-star rating-star" data-value="3"></i>
+                            <i class="fas fa-star rating-star" data-value="4"></i>
+                            <i class="fas fa-star rating-star" data-value="5"></i>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Poor</span>
+                            <span>Fair</span>
+                            <span>Good</span>
+                            <span>Very Good</span>
+                            <span>Excellent</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="feedback-text" class="block text-sm font-medium text-gray-700 mb-1">Your Feedback</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                <i class="fas fa-comment text-gray-400"></i>
+                            </div>
+                            <textarea id="feedback-text" name="feedback" rows="5" required placeholder="Tell us about your experience..."
+                                class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500 py-3 px-4 border"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <button type="submit" 
+                            class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-6 rounded-md transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Submit Feedback
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 md:py-16 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">What Our Patients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Read testimonials from patients who have experienced our care</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center space-x-1 text-yellow-400 mr-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">2 days ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The care I received at Neo Health was exceptional. The staff was professional and compassionate throughout my treatment."</p>
+                    <div class="flex items-center">
+                        <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">AM</div>
+                        <div>
+                            <h4 class="font-medium">Anna M.</h4>
+                            <p class="text-sm text-gray-500">Wound Care Patient</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center space-x-1 text-yellow-400 mr-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">1 week ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The ostomy care specialists made me feel comfortable and confident. They took time to answer all my questions."</p>
+                    <div class="flex items-center">
+                        <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">TK</div>
+                        <div>
+                            <h4 class="font-medium">Tebogo K.</h4>
+                            <p class="text-sm text-gray-500">Ostomy Care Patient</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center space-x-1 text-yellow-400 mr-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">3 weeks ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The nursing team provided excellent care for my elderly mother. They were patient, kind, and very professional."</p>
+                    <div class="flex items-center">
+                        <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">LB</div>
+                        <div>
+                            <h4 class="font-medium">Lesego B.</h4>
+                            <p class="text-sm text-gray-500">Family Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-orange-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="neo-logo.jpg" alt="Neo Health Logo" class="h-12 mb-4">
+                    <p class="text-orange-200">Compassionate care for wound management, ostomy care, and continence care.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-orange-300 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-orange-300 hover:text-white">About Us</a></li>
+                        <li><a href="services.html" class="text-orange-300 hover:text-white">Services</a></li>
+                        <li><a href="team.html" class="text-orange-300 hover:text-white">Our Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="wound-care.html" class="text-orange-300 hover:text-white">Wound Care</a></li>
+                        <li><a href="ostomy-care.html" class="text-orange-300 hover:text-white">Ostomy Care</a></li>
+                        <li><a href="professional-nursing.html" class="text-orange-300 hover:text-white">Nursing Services</a></li>
+                        <li><a href="continence-care.html" class="text-orange-300 hover:text-white">Continence Care</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-orange-200">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Gaborone West Plot 16424 Nossop Cres, Gaborone West Ext 48, Botswana</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>71 823 042</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>neohealth.wellnesscenter@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-orange-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-orange-300 mb-4 md:mb-0">© 2025 Neo Health and Wellness Center. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-orange-300 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-orange-300 hover:text-white text-sm">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Star rating functionality
+        const stars = document.querySelectorAll('.rating-star');
+        const ratingInput = document.getElementById('rating');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                ratingInput.value = value;
+                
+                // Update star display
+                stars.forEach((s, index) => {
+                    if (index < value) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Hover effect
+            star.addEventListener('mouseover', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                stars.forEach((s, index) => {
+                    if (index < value) {
+                        s.style.color = '#F59E0B';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                const currentRating = parseInt(ratingInput.value);
+                stars.forEach((s, index) => {
+                    if (index >= currentRating) {
+                        s.style.color = '#E5E7EB';
+                    }
+                });
+            });
+        });
+
+        // Form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const email = document.getElementById('email').value;
+            const rating = document.getElementById('rating').value;
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                e.preventDefault();
+            }
+            
+            if (rating === "0") {
+                alert('Please select a rating');
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
