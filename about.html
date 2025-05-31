@@ -3,63 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Neo Health and Wellness Center - our mission, values, and dedicated healthcare professionals in Gaborone, Botswana.">
+    <meta name="keywords" content="healthcare, wellness, medical center, Botswana, Gaborone, medical services, patient care">
     <title>About Us - Neo Health and Wellness Center</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(226, 89, 10, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
-<body>
 
-   <!-- Header Section -->
-   <header class="header" role="banner">
-    <div class="logo">
-        <img src="neo logo.jpg" alt="Neo Health and Wellness Center Logo">
-    </div>
-    <nav class="navbar" role="navigation">
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="appointment.html">Book Appointment</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-            <li><a href="team.html">Our Team</a></li>
-            <li><a href="refer.html">Refer A Patient</a></li>
-        </ul>
-    </nav>
-</header>
-
-    <!-- About Us Section -->
-    <section class="about-us">
-        <div class="container">
-            <h1>About Neo Health and Wellness Center</h1>
-            <p>Welcome to <strong>Neo Health and Wellness Center</strong>, where your health and well-being are our top priority. We specialize in providing expert care in wound management, ostomy care, and continence care. Our highly skilled and compassionate team is dedicated to offering personalized healthcare services to help our patients lead healthy and fulfilling lives.</p>
-
-            <div class="mission-vision">
-                <h2>Our Mission</h2>
-                <p>To deliver high-quality, compassionate healthcare services that focus on the well-being and comfort of our patients. We strive to offer comprehensive care with the latest treatment methods and innovations.</p>
-
-                <h2>Our Vision</h2>
-                <p>To be the leading healthcare provider known for our expertise, compassionate care, and exceptional patient outcomes. We aim to improve lives by offering reliable and personalized healthcare services.</p>
+<body class="bg-gray-50">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="bg-orange-600 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="logo">
+                <a href="index.html" aria-label="Neo Health and Wellness Center Home">
+                    <img src="neo-logo.webp" alt="Neo Health and Wellness Center Logo" class="h-12 w-auto">
+                </a>
             </div>
-
-            <div class="why-choose-us">
-                <h2>Why Choose Us?</h2>
-                <ul>
-                    <li>✅ Expert healthcare professionals with extensive experience in specialized care</li>
-                    <li>✅ Personalized care plans to meet the unique needs of each patient</li>
-                    <li>✅ Compassionate and patient-centered approach to healthcare</li>
-                    <li>✅ Use of advanced technology and treatment methods</li>
-                    <li>✅ A welcoming and supportive environment</li>
+            
+            <!-- Mobile menu toggle -->
+            <button class="md:hidden focus:outline-none" id="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <nav id="primary-navigation" class="hidden md:block" role="navigation" aria-label="Main navigation">
+                <ul class="flex flex-col md:flex-row md:space-x-8">
+                    <li><a href="index.html" class="block py-2 px-3 text-white hover:text-orange-100 transition">Home</a></li>
+                    <li><a href="about.html" class="block py-2 px-3 text-white font-semibold hover:text-orange-100 transition">About Us</a></li>
+                    <li class="relative group">
+                        <button class="flex items-center py-2 px-3 text-white hover:text-orange-100 transition">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <ul class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <li><a href="wound-care.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Wound Care</a></li>
+                            <li><a href="ostomy-care.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Ostomy Care</a></li>
+                            <li><a href="continence-care.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Continence Care</a></li>
+                            <li><a href="nursing-services.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Nursing Services</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="team.html" class="block py-2 px-3 text-white hover:text-orange-100 transition">Our Team</a></li>
+                    <li><a href="contact.html" class="block py-2 px-3 text-white hover:text-orange-100 transition">Contact Us</a></li>
+                    <li><a href="appointment.html" class="ml-2 inline-block bg-white hover:bg-orange-50 text-orange-600 font-medium py-2 px-4 rounded-md transition">Book Appointment</a></li>
                 </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">About Us</a>
+                <div>
+                    <button class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50" id="services-dropdown-toggle">
+                        Services <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="services-dropdown" class="hidden pl-4">
+                        <a href="wound-care.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Wound Care</a>
+                        <a href="ostomy-care.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Ostomy Care</a>
+                        <a href="continence-care.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Continence Care</a>
+                        <a href="nursing-services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Nursing Services</a>
+                    </div>
+                </div>
+                <a href="team.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Our Team</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50">Contact Us</a>
+                <a href="appointment.html" class="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition">Book Appointment</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Neo Health and Wellness Center | All Rights Reserved</p>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-bg text-white py-20 md:py-32">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">About Neo Health and Wellness Center</h1>
+                    <p class="text-xl md:text-2xl mb-8">Compassionate healthcare professionals dedicated to improving lives in Gaborone, Botswana</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Are Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2">
+                        <div class="text-center lg:text-left mb-8 lg:mb-0">
+                            <h2 class="text-3xl font-bold text-gray-800 mb-6">Who We Are <i class="fas fa-users text-orange-600 ml-2"></i></h2>
+                            <p class="text-lg text-gray-600 mb-6">Neo Health and Wellness Center is a premier healthcare facility in Gaborone, Botswana, specializing in comprehensive wound care, ostomy care, and continence management services.</p>
+                            <p class="text-lg text-gray-600 mb-6">Our team of highly trained nurses and healthcare professionals is committed to providing personalized, evidence-based care to help our patients achieve optimal health and quality of life.</p>
+                            <p class="text-lg text-gray-600">Founded in 2015, we have grown to become a trusted name in specialized nursing care, serving hundreds of patients throughout Botswana with compassion and clinical excellence.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2">
+                        <div class="rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Neo Health team working together" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission <i class="fas fa-bullseye text-orange-600 ml-2"></i></h2>
+                    <p class="text-xl text-gray-600 mb-8">To provide exceptional, specialized nursing care that improves quality of life for our patients through evidence-based practice, innovative treatments, and compassionate service.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-heartbeat text-orange-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Patient-Centered Care</h3>
+                            <p class="text-gray-600">Tailored treatment plans focused on individual needs and goals</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-flask text-orange-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Evidence-Based Practice</h3>
+                            <p class="text-gray-600">Utilizing the latest research and proven treatment methods</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-hands-helping text-orange-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Community Focus</h3>
+                            <p class="text-gray-600">Serving the healthcare needs of Botswana with dedication</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Core Values <i class="fas fa-star text-orange-600 ml-2"></i></h2>
+                    <p class="text-lg text-gray-600">These principles guide everything we do at Neo Health and Wellness Center</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="value-card bg-white rounded-xl shadow-md p-8 text-center transition duration-300">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-trophy text-orange-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Excellence</h3>
+                        <p class="text-gray-600">We strive for the highest standards in clinical practice and patient experience.</p>
+                    </div>
+                    
+                    <div class="value-card bg-white rounded-xl shadow-md p-8 text-center transition duration-300">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-lightbulb text-orange-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Innovation</h3>
+                        <p class="text-gray-600">We embrace new technologies and treatment approaches to improve outcomes.</p>
+                    </div>
+                    
+                    <div class="value-card bg-white rounded-xl shadow-md p-8 text-center transition duration-300">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-crown text-orange-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Leadership</h3>
+                        <p class="text-gray-600">We set the standard for specialized nursing care in Botswana.</p>
+                    </div>
+                    
+                    <div class="value-card bg-white rounded-xl shadow-md p-8 text-center transition duration-300">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-shield-alt text-orange-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Integrity</h3>
+                        <p class="text-gray-600">We practice with honesty, transparency, and ethical responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Team Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Meet Our Leadership Team <i class="fas fa-user-md text-orange-600 ml-2"></i></h2>
+                    <p class="text-lg text-gray-600">Experienced professionals dedicated to your care</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="team-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dr. Tshepo Molefe" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Dr. Tshepo Molefe</h3>
+                            <p class="text-orange-600 font-medium mb-4">Medical Director</p>
+                            <p class="text-gray-600 mb-4">With over 15 years of experience in wound care management, Dr. Molefe leads our clinical team with expertise and compassion.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-orange-600 hover:text-orange-800" aria-label="LinkedIn profile">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-orange-600 hover:text-orange-800" aria-label="Twitter profile">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nurse Boipelo Kgosi" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Nurse Boipelo Kgosi</h3>
+                            <p class="text-orange-600 font-medium mb-4">Head of Nursing</p>
+                            <p class="text-gray-600 mb-4">A certified wound care specialist with extensive training in ostomy management, Nurse Kgosi ensures our clinical standards remain exceptional.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-orange-600 hover:text-orange-800" aria-label="LinkedIn profile">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-orange-600 hover:text-orange-800" aria-label="Twitter profile">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Ms. Lesego Dube" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Ms. Lesego Dube</h3>
+                            <p class="text-orange-600 font-medium mb-4">Practice Manager</p>
+                            <p class="text-gray-600 mb-4">With a background in healthcare administration, Ms. Dube ensures our operations run smoothly and our patients receive exceptional service.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-orange-600 hover:text-orange-800" aria-label="LinkedIn profile">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-orange-600 hover:text-orange-800" aria-label="Twitter profile">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="team.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-6 rounded-md transition">View Full Team</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-orange-600 text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Experience Our Care?</h2>
+                    <p class="text-xl mb-8 opacity-90">Contact us today to schedule a consultation with our specialized healthcare team.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="appointment.html" class="bg-white text-orange-600 hover:bg-orange-50 font-medium py-3 px-8 rounded-md text-center transition">Book an Appointment</a>
+                        <a href="tel:+26771823042" class="bg-transparent border-2 border-white hover:bg-white hover:text-orange-600 font-medium py-3 px-8 rounded-md text-center transition flex items-center justify-center gap-2">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="footer-about">
+                    <img src="neo-logo-white.webp" alt="Neo Health and Wellness Center Logo" class="h-12 w-auto mb-4">
+                    <p class="text-gray-400">Specialized wound care, ostomy care, and continence management services in Gaborone, Botswana.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white transition">Our Team</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h3 class="text-lg font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="wound-care.html" class="text-gray-400 hover:text-white transition">Wound Care</a></li>
+                        <li><a href="ostomy-care.html" class="text-gray-400 hover:text-white transition">Ostomy Care</a></li>
+                        <li><a href="continence-care.html" class="text-gray-400 hover:text-white transition">Continence Care</a></li>
+                        <li><a href="nursing-services.html" class="text-gray-400 hover:text-white transition">Nursing Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <address class="not-italic">
+                        <p class="flex items-start mb-3 text-gray-400">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-orange-400"></i>
+                            <span>Gaborone West Plot 16424<br>Nossop Cres, Gaborone West Ext 48</span>
+                        </p>
+                        <p class="flex items-center mb-3 text-gray-400">
+                            <i class="fas fa-phone-alt mr-3 text-orange-400"></i>
+                            <a href="tel:+26771823042" class="hover:text-white transition">+267 71 823 042</a>
+                        </p>
+                        <p class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-3 text-orange-400"></i>
+                            <a href="mailto:info@neohealth.bw" class="hover:text-white transition">info@neohealth.bw</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2024 Neo Health and Wellness Center. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top fixed bottom-8 right-8 bg-orange-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const servicesDropdownToggle = document.getElementById('services-dropdown-toggle');
+        const servicesDropdown = document.getElementById('services-dropdown');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            mobileMenuToggle.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        servicesDropdownToggle.addEventListener('click', () => {
+            const expanded = servicesDropdownToggle.getAttribute('aria-expanded') === 'true';
+            servicesDropdownToggle.setAttribute('aria-expanded', !expanded);
+            servicesDropdown.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
