@@ -3,65 +3,881 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referral Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Refer patients to Neo Health and Wellness Center for specialized wound care, ostomy care, and continence management services in Gaborone, Botswana.">
+    <meta name="keywords" content="patient referral, healthcare referral, wound care, ostomy care, continence care, Botswana, Gaborone">
+    <meta name="author" content="Neo Health and Wellness Center">
+    <title>Patient Referral | Neo Health and Wellness Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7B25',
+                        primaryDark: '#E56D1F',
+                        secondary: '#2D3748',
+                        accent: '#4A5568'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FF7B25;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .form-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .input-focus:focus {
+            border-color: #FF7B25;
+            box-shadow: 0 0 0 3px rgba(255, 123, 37, 0.2);
+        }
+        
+        .referral-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #FF7B25 0%, #FFA64D 100%);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
     <!-- Header Section -->
-    <header class="header">
-        <div class="logo">
-            <img src="neo logo.jpg" alt="Healthcare Solutions Logo">
+    <header class="header p-4 bg-orange-500">
+        <div class="container mx-auto flex items-center justify-between flex-wrap">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="neo logo.jpg" alt="Neo Health and Wellness Centre Logo" class="h-12" />
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-white text-3xl focus:outline-none">
+                ☰
+            </button>
+            
+            <!-- Navigation Menu -->
+            <nav id="nav-menu" class="w-full md:w-auto md:flex hidden flex-col md:flex-row gap-4 mt-4 md:mt-0 text-white font-medium">
+                <ul class="flex flex-col md:flex-row gap-4">
+                    <li><a href="index.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Home</a></li>
+                    <li><a href="about.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">About Us</a></li>
+                    <li><a href="services.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Services</a></li>
+                    <li><a href="contact.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Contact Us</a></li>
+                    <li><a href="appointment.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Book Appointment</a></li>
+                    <li><a href="feedback.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Feedback</a></li>
+                    <li><a href="team.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Our Team</a></li>
+                    <li><a href="refer.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Refer A Patient</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="appointment.html">Book Appointment</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Our Team</a></li>
-                <li><a href="refer.html">Refer a patient</a></li>
-            </ul>
-        </nav>
+        
+        <!-- Toggle Script -->
+        <script>
+            const toggleButton = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            toggleButton.addEventListener('click', () => {
+                navMenu.classList.toggle('hidden');
+            });
+        </script>
     </header>
 
-    <!-- Referral Section -->
-    <section id="referrals" class="referral-section">
-        <div class="container">
-            <h2>Refer a Patient</h2>
-            <p>If you are a healthcare provider or medical professional, use the form below to refer a patient to our services.</p>
 
-            <!-- Referral Form -->
-            <form action="/submit-referral" method="POST">
-                <label for="referring-name">Referring Physician's Name*</label>
-                <input type="text" id="referring-name" name="referring_name" required>
-
-                <label for="patient-name">Patient's Name*</label>
-                <input type="text" id="patient-name" name="patient_name" required>
-
-                <label for="contact-number">Contact Number*</label>
-                <input type="tel" id="contact-number" name="contact_number" required>
-
-                <label for="patient-condition">Patient's Condition</label>
-                <textarea id="patient-condition" name="patient_condition"></textarea>
-
-                <button type="submit" class="btn">Submit Referral</button>
-            </form>
-
-            <!-- Additional Referral Information -->
-            <p>For more detailed information about our services and referral process, please contact us directly.</p>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Patient Referral Services</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+                Partner with us to provide specialized care for your patients
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.4s;">
+                <a href="#referral-form" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition duration-300">
+                    Submit Referral <i class="fas fa-file-medical ml-2"></i>
+                </a>
+                <a href="tel:+26771823042" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition duration-300">
+                    Call for Assistance <i class="fas fa-phone-alt ml-2"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Neo Health and Wellness Center | All Rights Reserved</p>
+    <!-- Referral Process Section -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Referral Process</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 referral-card">
+                    <div class="bg-primary bg-opacity-10 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center text-gray-800 mb-3">Complete Referral Form</h3>
+                    <p class="text-gray-600 text-center">
+                        Fill out our secure online referral form with patient details and medical information.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 referral-card">
+                    <div class="bg-primary bg-opacity-10 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center text-gray-800 mb-3">Review & Confirmation</h3>
+                    <p class="text-gray-600 text-center">
+                        Our team will review the referral and contact you within 24 hours to confirm acceptance.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 referral-card">
+                    <div class="bg-primary bg-opacity-10 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center text-gray-800 mb-3">Patient Care Begins</h3>
+                    <p class="text-gray-600 text-center">
+                        We coordinate with you and the patient to begin specialized treatment and care.
+                    </p>
+                </div>
+            </div>
         </div>
-        <script src="script.js"></script>
+    </section>
 
+    <!-- Referral Form Section -->
+    <section id="referral-form" class="py-12 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl form-shadow overflow-hidden p-8 md:p-10">
+                <div class="flex items-center mb-8">
+                    <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                        <i class="fas fa-file-medical text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Patient Referral Form</h2>
+                </div>
+                
+                <form id="referralForm" action="/submit-referral" method="POST" class="space-y-6">
+                    <!-- Referring Provider Information -->
+                    <div class="border-b border-gray-200 pb-6 mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Referring Provider Information</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="referring-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="referring-name" name="referring_name" required placeholder="Dr. Firstname Lastname"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="referring-title" class="block text-sm font-medium text-gray-700 mb-1">Title/Position <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-briefcase text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="referring-title" name="referring_title" required placeholder="e.g. General Practitioner"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="referring-facility" class="block text-sm font-medium text-gray-700 mb-1">Facility/Organization <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-hospital text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="referring-facility" name="referring_facility" required placeholder="Facility name"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="referring-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-phone text-gray-400"></i>
+                                    </div>
+                                    <input type="tel" id="referring-phone" name="referring_phone" required placeholder="+267 XX XXX XXX"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="referring-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-400"></i>
+                                    </div>
+                                    <input type="email" id="referring-email" name="referring_email" required placeholder="your.email@example.com"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="referring-mcrn" class="block text-sm font-medium text-gray-700 mb-1">Medical Council Reg. No.</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-id-card text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="referring-mcrn" name="referring_mcrn" placeholder="Registration number"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Patient Information -->
+                    <div class="border-b border-gray-200 pb-6 mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Patient Information</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="patient-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="patient-name" name="patient_name" required placeholder="Patient full name"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="patient-dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-calendar-alt text-gray-400"></i>
+                                    </div>
+                                    <input type="date" id="patient-dob" name="patient_dob" required
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="patient-gender" class="block text-sm font-medium text-gray-700 mb-1">Gender <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-venus-mars text-gray-400"></i>
+                                    </div>
+                                    <select id="patient-gender" name="patient_gender" required
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border appearance-none">
+                                        <option value="" disabled selected>Select gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="patient-id" class="block text-sm font-medium text-gray-700 mb-1">National ID/Passport No.</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-id-card text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="patient-id" name="patient_id" placeholder="Omang/Passport number"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="patient-phone" class="block text-sm font-medium text-gray-700 mb-1">Contact Number <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-phone text-gray-400"></i>
+                                    </div>
+                                    <input type="tel" id="patient-phone" name="patient_phone" required placeholder="+267 XX XXX XXX"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="patient-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-400"></i>
+                                    </div>
+                                    <input type="email" id="patient-email" name="patient_email" placeholder="patient.email@example.com"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="patient-address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-map-marker-alt text-gray-400"></i>
+                                    </div>
+                                    <textarea id="patient-address" name="patient_address" rows="2" placeholder="Full physical address"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Medical Information -->
+                    <div class="border-b border-gray-200 pb-6 mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Medical Information</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="referral-date" class="block text-sm font-medium text-gray-700 mb-1">Date of Referral <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-calendar-check text-gray-400"></i>
+                                    </div>
+                                    <input type="date" id="referral-date" name="referral_date" required
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="service-requested" class="block text-sm font-medium text-gray-700 mb-1">Service Requested <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-procedures text-gray-400"></i>
+                                    </div>
+                                    <select id="service-requested" name="service_requested" required
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border appearance-none">
+                                        <option value="" disabled selected>Select service</option>
+                                        <option value="Wound Care">Wound Care</option>
+                                        <option value="Ostomy Care">Ostomy Care</option>
+                                        <option value="Continence Care">Continence Care</option>
+                                        <option value="Professional Nursing">Professional Nursing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="primary-diagnosis" class="block text-sm font-medium text-gray-700 mb-1">Primary Diagnosis <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-diagnoses text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="primary-diagnosis" name="primary_diagnosis" required placeholder="Primary diagnosis (ICD-10 code if available)"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="secondary-diagnosis" class="block text-sm font-medium text-gray-700 mb-1">Secondary Diagnosis</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-diagnoses text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="secondary-diagnosis" name="secondary_diagnosis" placeholder="Secondary diagnosis (ICD-10 code if available)"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="patient-condition" class="block text-sm font-medium text-gray-700 mb-1">Patient's Condition & Reason for Referral <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-file-medical text-gray-400"></i>
+                                    </div>
+                                    <textarea id="patient-condition" name="patient_condition" rows="5" required placeholder="Detailed description of patient's condition, current treatment, and reason for referral"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="current-meds" class="block text-sm font-medium text-gray-700 mb-1">Current Medications</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-pills text-gray-400"></i>
+                                    </div>
+                                    <textarea id="current-meds" name="current_meds" rows="3" placeholder="List of current medications with dosages"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="allergies" class="block text-sm font-medium text-gray-700 mb-1">Known Allergies</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-allergies text-gray-400"></i>
+                                    </div>
+                                    <textarea id="allergies" name="allergies" rows="2" placeholder="List any known allergies (medications, foods, etc.)"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="relevant-history" class="block text-sm font-medium text-gray-700 mb-1">Relevant Medical History</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-history text-gray-400"></i>
+                                    </div>
+                                    <textarea id="relevant-history" name="relevant_history" rows="4" placeholder="Any relevant medical history (surgeries, chronic conditions, etc.)"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Information -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Additional Information</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="insurance-provider" class="block text-sm font-medium text-gray-700 mb-1">Insurance Provider</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-shield-alt text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="insurance-provider" name="insurance_provider" placeholder="Insurance company name"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="policy-number" class="block text-sm font-medium text-gray-700 mb-1">Policy Number</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-file-invoice text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="policy-number" name="policy_number" placeholder="Insurance policy number"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="special-notes" class="block text-sm font-medium text-gray-700 mb-1">Special Notes/Requests</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 pt-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-sticky-note text-gray-400"></i>
+                                    </div>
+                                    <textarea id="special-notes" name="special_notes" rows="3" placeholder="Any special notes or requests regarding the referral"
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="documents" class="block text-sm font-medium text-gray-700 mb-1">Upload Supporting Documents</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-file-upload text-gray-400"></i>
+                                    </div>
+                                    <input type="file" id="documents" name="documents" multiple
+                                        class="pl-10 input-focus block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary focus:border-primary py-3 px-4 border">
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">You can upload medical reports, test results, or other relevant documents (PDF, JPG, PNG)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Consent -->
+                    <div class="flex items-start mb-8">
+                        <input type="checkbox" id="consent-checkbox" name="consent" required class="mt-1 mr-3 rounded border-gray-300 text-primary focus:ring-primary">
+                        <label for="consent-checkbox" class="text-sm text-gray-700">
+                            I confirm that I have obtained the patient's consent to share their medical information with Neo Health and Wellness Center for the purpose of this referral. <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="pt-2">
+                        <button type="submit" id="submit-button"
+                            class="w-full bg-primary hover:bg-primaryDark text-white font-medium py-3 px-6 rounded-md transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Submit Referral
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Guidelines Section -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Referral Guidelines</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 rounded-xl p-6 md:p-8">
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Complete Information</h3>
+                                <p class="text-gray-600">Please provide as much detail as possible about the patient's condition to ensure appropriate and timely care.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Response Time</h3>
+                                <p class="text-gray-600">We aim to respond to all referrals within 24 hours during business days (Monday-Friday).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Urgent Referrals</h3>
+                                <p class="text-gray-600">For urgent cases, please call our office directly at <a href="tel:+26771823042" class="text-primary hover:text-primaryDark font-medium">+267 71 823 042</a> after submitting this form.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Supporting Documents</h3>
+                                <p class="text-gray-600">Attach relevant medical reports, test results, or imaging studies to facilitate comprehensive assessment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Patient Consent</h3>
+                                <p class="text-gray-600">Ensure you have obtained the patient's consent for referral and sharing of medical information as per Botswana healthcare regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="Neo_Referral_Form (1).pdf" download class="text-primary hover:text-primaryDark font-medium inline-flex items-center">
+                            <i class="fas fa-download mr-2"></i> Download Complete Referral Guidelines (PDF)
+                          </a>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-12 md:py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Need Help With Your Referral?</h2>
+                <p class="text-xl text-gray-600 mb-8">Our referral coordination team is available to assist you with any questions or concerns.</p>
+    
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Call Us -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="bg-primary bg-opacity-10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Call Us</h3>
+                        <a href="tel:+26771823042" class="text-primary hover:text-primaryDark font-medium">+267 71 823 042</a>
+                        <p class="text-sm text-gray-500 mt-1">Available 24/7 for urgent referrals</p>
+                    </div>
+    
+                    <!-- Email Us -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="bg-primary bg-opacity-10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Email Us</h3>
+                        <a href="mailto:neohealth.wellnesscenter@gmail.com"
+                           class="text-primary hover:text-primaryDark font-medium inline-block break-words max-w-full">
+                          neohealth.wellnesscenter@gmail.com
+                        </a>
+                        <p class="text-sm text-gray-500 mt-1">Response within 24 hours</p>
+                    </div>
+    
+                    <!-- Visit Us -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="bg-primary bg-opacity-10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Visit Us</h3>
+                        <p class="text-gray-600">Gaborone West Plot 16424</p>
+                        <p class="text-sm text-gray-500 mt-1">By appointment only</p>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="neo-logo.jpg" alt="Neo Health Logo" class="h-12 mb-4">
+                    <p class="text-gray-400">Compassionate care for wound management, ostomy care, and continence care in Gaborone, Botswana.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="wound-care.html" class="text-gray-400 hover:text-white transition duration-300">Wound Care</a></li>
+                        <li><a href="ostomy-care.html" class="text-gray-400 hover:text-white transition duration-300">Ostomy Care</a></li>
+                        <li><a href="professional-nursing.html" class="text-gray-400 hover:text-white transition duration-300">Nursing Services</a></li>
+                        <li><a href="continence-care.html" class="text-gray-400 hover:text-white transition duration-300">Continence Care</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Gaborone West Plot 16424<br>Nossop Cres, Gaborone West Ext 48<br>Botswana</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <a href="tel:+26771823042" class="hover:text-white transition duration-300">+267 71 823 042</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <a href="mailto:neohealth.wellnesscenter@gmail.com" class="hover:text-white transition duration-300">neohealth.wellnesscenter@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2024 Neo Health and Wellness Center. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Terms of Service</a>
+                    <a href="accessibility.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Accessibility</a>
+                </div>
+            </div>
+        </div>
     </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-primaryDark" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Referral Submitted!</h3>
+                <p class="text-gray-600 mb-6">
+                    Thank you for referring your patient to Neo Health and Wellness Center. We have received your referral and will contact you within 24 hours.
+                </p>
+                <button id="close-modal" class="bg-primary hover:bg-primaryDark text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
+        });
+        
+        // Form submission
+        const referralForm = document.getElementById('referralForm');
+        const submitButton = document.getElementById('submit-button');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        referralForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+            submitButton.disabled = true;
+            
+            // Simulate form submission (replace with actual AJAX call)
+            setTimeout(() => {
+                // Show confirmation modal
+                confirmationModal.classList.remove('hidden');
+                
+                // Reset button
+                submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Submit Referral';
+                submitButton.disabled = false;
+                
+                // Optionally reset form
+                // referralForm.reset();
+            }, 2000);
+        });
+        
+        closeModal.addEventListener('click', () => {
+            confirmationModal.classList.add('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+        
+        // Form validation
+        const emailInput = document.getElementById('referring-email');
+        emailInput.addEventListener('blur', () => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.classList.add('border-red-500');
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'text-red-500 text-sm mt-1';
+                errorDiv.textContent = 'Please enter a valid email address';
+                
+                // Remove existing error if any
+                const existingError = emailInput.nextElementSibling;
+                if (existingError && existingError.className.includes('text-red-500')) {
+                    emailInput.parentNode.removeChild(existingError);
+                }
+                
+                emailInput.parentNode.appendChild(errorDiv);
+            } else {
+                emailInput.classList.remove('border-red-500');
+                const errorDiv = emailInput.nextElementSibling;
+                if (errorDiv && errorDiv.className.includes('text-red-500')) {
+                    emailInput.parentNode.removeChild(errorDiv);
+                }
+            }
+        });
+        
+        // Phone number validation
+        const phoneInput = document.getElementById('referring-phone');
+        phoneInput.addEventListener('blur', () => {
+            const phoneRegex = /^\+?\d{8,15}$/;
+            if (!phoneRegex.test(phoneInput.value)) {
+                phoneInput.classList.add('border-red-500');
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'text-red-500 text-sm mt-1';
+                errorDiv.textContent = 'Please enter a valid phone number';
+                
+                // Remove existing error if any
+                const existingError = phoneInput.nextElementSibling;
+                if (existingError && existingError.className.includes('text-red-500')) {
+                    phoneInput.parentNode.removeChild(existingError);
+                }
+                
+                phoneInput.parentNode.appendChild(errorDiv);
+            } else {
+                phoneInput.classList.remove('border-red-500');
+                const errorDiv = phoneInput.nextElementSibling;
+                if (errorDiv && errorDiv.className.includes('text-red-500')) {
+                    phoneInput.parentNode.removeChild(errorDiv);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
